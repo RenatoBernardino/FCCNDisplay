@@ -147,3 +147,8 @@
   padding: 5px;
   background-color: white;
 }
+
+.resolution-check-box{
+  width: 3vh;
+  height: 3vh;
+}

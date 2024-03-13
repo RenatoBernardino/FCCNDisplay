@@ -6,7 +6,7 @@ H O W   T O   R U N   T H E   P R O J E C T
     - If the server port is changed it is necessary to change the file fccn_client\src\middlewares\interfaceMiddleware.js
 
 2º Client: 
-    - Open a terminal inside fccn_client directory and run "npm start" - this should start the server on port 3001 
+    - Open a terminal inside fccn_client directory and run "npm start" - this should start the client on port 3000 and open the app 
 
 
 H O W   T O   R U N   T E S T S
