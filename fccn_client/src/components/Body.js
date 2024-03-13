@@ -59,7 +59,6 @@ function Body() {
   }
 
   const DisplayVideoColumn = () => {
-
     return (
       <div className="d-block">
         {videos.map((obj) => (

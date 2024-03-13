@@ -96,4 +96,45 @@ class PexelsControllerTest < ActionDispatch::IntegrationTest
     assert_equal 36, json_response['total_pages'] # This can change on the api so remove if failing
     assert_equal 16, json_response['per_page'] 
   end
+
+  test "Search for data with negative page" do
+    get "http://127.0.0.1:3001/search?query=earth&resolution=HD&page=-1&video_formation=grid"
+
+    json_response = JSON.parse(response.body)
+    assert_response :bad_request
+    assert_equal "Page has to be a positive number", json_response['error_message'] 
+    # Check present
+  end
+
+  test "Search for data with page 0" do
+    get "http://127.0.0.1:3001/search?query=earth&resolution=HD&page=0&video_formation=grid"
+
+    json_response = JSON.parse(response.body)
+    assert_response :bad_request
+    assert_equal "Page has to be a positive number", json_response['error_message'] 
+    # Check present
+  end
+
+  test "Search for data with page too big" do
+    get "http://127.0.0.1:3001/search?query=earth&resolution=HD&page=1230214&video_formation=grid"
+
+    json_response = JSON.parse(response.body)
+    assert_response :success
+
+    # Check values
+    assert_equal [], json_response['videos']
+    assert_equal 0, json_response['total_pages']
+    assert_equal 1, json_response['per_page']
+    assert_equal 1, json_response['page'] 
+    # Check present
+  end
+
+  test "Search for data with invalid resolution" do
+    get "http://127.0.0.1:3001/search?query=earth&resolution=wrong_value&page=1&video_formation=grid"
+
+    json_response = JSON.parse(response.body)
+    assert_response :bad_request
+    assert_equal "Invalid resolution passed", json_response['error_message'] 
+    # Check present
+  end
 end
