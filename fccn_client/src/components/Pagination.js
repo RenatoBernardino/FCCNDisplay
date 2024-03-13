@@ -7,7 +7,7 @@ function Pagination({ changePage }) {
   const loading = useSelector((state) => state.interface.loading);
 
   return (
-    total_pages >= 1 || loading ?
+    total_pages <= 1 || loading ?
       (<div></div>)
       :
       (
