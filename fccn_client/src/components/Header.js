@@ -1,9 +1,5 @@
 import pexels_logo from '../assets/pexels_logo.png';
-import { Button } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faFilter, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
 import { searchData, updateResolution, updateQuery } from '../actions/interfaceActions';
 import Search from './Search';
 
