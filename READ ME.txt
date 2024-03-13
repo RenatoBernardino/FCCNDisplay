@@ -14,7 +14,7 @@ H O W   T O   R U N   T H E   P R O J E C T
 D E S I G N   C H O I C E S
 
 - Removed locale from the design,the documentation is outdated and the API returns "ArgumentError (unknown keyword: :locale):" when trying o use locale
-
+- Had to use different icons for the grid and column displays because the icons in the design were from fontawesome pro
 
 
 H O W   T O   R U N   T E S T S
