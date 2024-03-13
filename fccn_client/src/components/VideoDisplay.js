@@ -43,14 +43,14 @@ function VideoDisplay({ data, desktop, displayVideo, display_type }) {
         </video>
       </div>) : (
         <div className="col-12 mb-3 d-flex">
-          <div className="col-lg-2 col-4">
+          <div className="col-xl-2 col-4">
             <video ref={videoRef} onClick={() => displayVideo(data.id, videoRef)} className="video d-flex justify-content-center align-items-center w-100" poster={videoPicture.picture} onEnded={() => handleVideoEnd()}>
               <source src={videoObject.link} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
 
-          <div className="col-lg-10 col-8 mx-4" style={{ marginTop: "-5px" }}>
+          <div className="col-xl-10 col-8 mx-4" style={{ marginTop: "-5px" }}>
             <h5 className="m-0 mb-3 autor" style={{ color: "#0094FF" }}>{data.user_name}</h5>
             <p className="m-0 text-white">ID: {data.id}</p>
             <p className="m-0 text-white">Duração: {data.duration}</p>

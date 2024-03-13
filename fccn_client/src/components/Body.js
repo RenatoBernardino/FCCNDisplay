@@ -74,7 +74,7 @@ function Body() {
     return (
       <div>
         <div className="d-flex justify-content-end my-4">
-          <FontAwesomeIcon icon={faTableCells} className="search-buttons rounded mx-2 mx-xl-4" style={video_formation === "grid" ? { color: "#05A081" } : { color: "white" }} onClick={() => changeVideoFormation("grid")} />
+          <FontAwesomeIcon icon={faTableCells} className="search-buttons rounded mx-3 mx-xl-4" style={video_formation === "grid" ? { color: "#05A081" } : { color: "white" }} onClick={() => changeVideoFormation("grid")} />
           <FontAwesomeIcon icon={faGripVertical} className="search-buttons rounded" onClick={() => changeVideoFormation("column")} style={video_formation !== "grid" ? { color: "#05A081" } : { color: "white" }} />
         </div>
         {loading ? (
