@@ -152,3 +152,12 @@
   width: 3vh;
   height: 3vh;
 }
+
+.filters-container{
+  position: absolute;
+  top: 6vh;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+}

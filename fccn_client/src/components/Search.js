@@ -31,8 +31,9 @@ function Search({ searchQuery }) {
   const changeResolution = (value) => {
     if (currentResolution === value) { return; }
 
-    dispatch(updateResolution(value));
+    setCurrentResolution(value);
   }
+
 
   const handleInputChange = (event) => {
     if (typeof event.target.value !== 'string') { return; }
@@ -47,7 +48,7 @@ function Search({ searchQuery }) {
         <div className="col-2"></div>
         <div className='col-10 d-flex'>
           <Button className="background-blue rounded-1 resolution-check-box d-flex align-items-center justify-content-center" onClick={() => changeResolution(value)}>
-            <FontAwesomeIcon icon={faCheck} className="" style={resolution === value ? {} : { opacity: 0 }} />
+            <FontAwesomeIcon icon={faCheck} className="" style={currentResolution === value ? {} : { opacity: 0 }} />
           </Button>
           <div className='filter-option-text px-2 rounded-1 mx-1 d-flex align-items-center' style={{ minWidth: "100px" }}>{value}</div>
         </div>
@@ -58,7 +59,7 @@ function Search({ searchQuery }) {
 
   const Filters = () => {
     return (
-      <div className='d-flex justify-content-lg-center' style={{ position: "absolute", top: "6vh", left: "0", width: "100%", zIndex: 2, pointerEvents: "none" }}>
+      <div className='d-flex justify-content-lg-center filters-container'>
         <div className="col-3 d-lg-none"></div>
         <div className="col-7 col-lg-11 rounded-bottom border-top border-dark bg-light p-3 px-4 d-flex">
           <div className='w-100 d-block d-lg-flex align-items-center' style={{pointerEvents: "auto"}}>
