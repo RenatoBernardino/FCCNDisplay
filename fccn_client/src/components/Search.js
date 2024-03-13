@@ -58,9 +58,10 @@ function Search({ searchQuery }) {
 
   const Filters = () => {
     return (
-      <div className='d-flex justify-content-lg-center justify-content-end' style={{ position: "absolute", top: "6vh", left: "0", width: "100%", zIndex: 2 }}>
+      <div className='d-flex justify-content-lg-center' style={{ position: "absolute", top: "6vh", left: "0", width: "100%", zIndex: 2, pointerEvents: "none" }}>
+        <div className="col-3 d-lg-none"></div>
         <div className="col-7 col-lg-11 rounded-bottom border-top border-dark bg-light p-3 px-4 d-flex">
-          <div className='w-100 d-block d-lg-flex align-items-center'>
+          <div className='w-100 d-block d-lg-flex align-items-center' style={{pointerEvents: "auto"}}>
             <div className='col-2'>
               <p className='m-0'><strong>Resoluções</strong></p>
             </div>
@@ -70,7 +71,7 @@ function Search({ searchQuery }) {
           </div>
 
         </div>
-        <div className="col-2 col-lg-1 d-flex align-items-center">
+        <div className="col-1 d-none d-lg-flex align-items-center">
           <div className='mx-1' style={{ opacity: 0 }}><Button className="background-blue search-buttons rounded"></Button></div>
           <div><Button className="background-blue search-buttons rounded" style={{ opacity: 0 }}></Button></div>
         </div>
