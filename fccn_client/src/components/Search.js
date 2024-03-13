@@ -43,7 +43,7 @@ function Search({ searchQuery }) {
 
   const ResolutionOption = ({ value }) => {
     return (
-      <div className="col-3">
+      <div className="col-3 my-1">
         <div className="col-2"></div>
         <div className='col-10 d-flex'>
           <Button className="background-blue rounded-1 resolution-check-box d-flex align-items-center justify-content-center" onClick={() => changeResolution(value)}>
@@ -56,35 +56,37 @@ function Search({ searchQuery }) {
     )
   }
 
-  const inputClasses = showFilters ? "col-11 h-50 rounded-top mr-2 border-0" : "col-11 h-50 rounded mr-2 border-0";
+  const inputClasses = showFilters ? "col-7 col-lg-11 h-50 rounded-top mr-2 border-0" : "col-7 col-lg-11 h-50 rounded mr-2 border-0";
   return (
-    <div className="col-8 d-none d-lg-flex align-items-center justify-content-center" style={{ position: "relative" }}>
+    <div className="col-lg-8 col-10 d-flex align-items-center justify-content-lg-center justify-content-end" style={{ position: "relative" }}>
       <input name="searchInput" className={inputClasses} value={localQuery} onChange={handleInputChange} maxLength={50}
         style={{ paddingLeft: '10px' }} />
 
-      <div className="col-1 d-flex align-items-center">
+      <div className="col-2 col-lg-1 d-flex align-items-center">
         <div className='mx-1'><Button className="background-blue search-buttons rounded" onClick={() => {
           searchQuery(localQuery, currentResolution);
         }}><FontAwesomeIcon icon={faSearch} /></Button></div>
         <div><Button className="background-blue search-buttons rounded" onClick={() => setShowFilters(!showFilters)}><FontAwesomeIcon icon={faFilter} style={showFilters ? { color: "black" } : {}} /></Button></div>
-        {showFilters && (
-          <div className='d-flex' style={{ position: "absolute", top: "6vh", left: "0", width: "100%", zIndex: 2 }}>
-            <div className="col-11 rounded-bottom border-top border-dark bg-light p-3 px-4 d-flex">
-              <div className='w-100 d-flex align-items-center'>
-                <div className='col-2'>
-                  <p className='m-0'><strong>Resoluções</strong></p>
-                </div>
-                {resolution_options.map((value, index) => (
-                  <ResolutionOption key={index} value={value} />
-                ))}
+      </div>
+      {showFilters && (
+        <div className='d-flex justify-content-lg-center justify-content-end' style={{ position: "absolute", top: "6vh", left: "0", width: "100%", zIndex: 2 }}>
+          <div className="col-7 col-lg-11 rounded-bottom border-top border-dark bg-light p-3 px-4 d-flex">
+            <div className='w-100 d-block d-lg-flex align-items-center'>
+              <div className='col-2'>
+                <p className='m-0'><strong>Resoluções</strong></p>
               </div>
-
+              {resolution_options.map((value, index) => (
+                <ResolutionOption key={index} value={value} />
+              ))}
             </div>
+
+          </div>
+          <div className="col-2 col-lg-1 d-flex align-items-center">
             <div className='mx-1' style={{ opacity: 0 }}><Button className="background-blue search-buttons rounded"></Button></div>
             <div><Button className="background-blue search-buttons rounded" style={{ opacity: 0 }}></Button></div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
 
   );

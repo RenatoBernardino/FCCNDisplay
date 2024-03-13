@@ -27,7 +27,7 @@ function Header() {
           </div>
         </div>
         <Search searchQuery={searchQuery} />
-        <div className="col-2"></div>
+        <div className="col-2 d-none d-lg-block"></div>
       </div>
     </div>
   );
